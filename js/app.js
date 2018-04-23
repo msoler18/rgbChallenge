@@ -1,9 +1,20 @@
-$('.option').each(function() {
-  var r = Math.floor(Math.random() * 255);
-  var g = Math.floor(Math.random() * 255);
-  var b = Math.floor(Math.random() * 255);
+var correct = Math.floor(Math.random() * 2);
 
 
-  var color = 'rgb('+ r +','+ g +','+ b +')';
+$('.option').each(function(index) {
+  var color = generateColor();
   $(this).css('background-color', color);
+
+  if (index == correct){
+    $('.question').text(color);
+  }
 });
+
+
+function generateColor(){
+  return 'rgb('+ random() +','+ random() +','+ random() +')';
+}
+
+function random(){
+  return Math.floor(Math.random() * 255);
+}
